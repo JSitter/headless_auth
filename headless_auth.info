@@ -1,0 +1,6 @@
+name = Headless Authentication
+description = Headless authentication for Backdrop CMS
+dependencies[] = jwt
+package = Headless
+version = 0.1-alpha
+backdrop = 1.x
