@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * Implements hook_menu
+ */
+function headless_auth_menu() {
+    $items['admin/config/administration/headless_authentication'] = array(
+        'title' => 'Headless Authentication Settings',
+        'description' => 'Administer headless authentication settings',
+        'page callback' => 'backdrop_get_form',
+        'page arguments' => array('headless_auth_admin_settings'),
+        'access arguments' => array('headless authentication administration'),
+    );
+    return $items;
+}
+
+/**
+ * Implements hook_permission
+ */
+function headless_auth_permission() {
+    return array(
+        'headless authentication administration' => array(
+            'title' => t('Administer headless authentication'),
+        ),
+    );
+}
+
+
+/**
+ * Administer authentication settings forms
+ */
+function headless_auth_admin_settings($form, &$form_state) {
+    $form['request_address'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Accept auth requests from address:'),
+    );
+    return $form;
+}
+
+/**
+ * 
+ */
